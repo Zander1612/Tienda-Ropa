@@ -20,19 +20,51 @@
         <nav id="menu"
             class="fixed top-0 left-0 h-full w-2/3 bg-gray-100 transform -translate-x-full opacity-0 
               transition-all duration-500 ease-in-out md:static md:flex md:translate-x-0 md:opacity-100 md:bg-transparent md:space-x-6">
-            <a href="#hero" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Inicio</a>
-            <a href="#beneficios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Beneficios</a>
-            <a href="#testimonios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Testimonios</a>
-            <a href="#contacto" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Contacto</a>
+            <a href="#hero" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Tienda</a>
+            <a href="#beneficios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Dama</a>
+            <a href="#testimonios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Caballero</a>
+            <a href="#contacto" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Ultima Colección</a>
 
             <button id="dark-toggle"
                 class="block p-3 ml-4 bg-gray-800 text-white rounded md:bg-transparent md:text-black">
-                🌙 Modo Oscuro
+                Modo Oscuro
+                <!-- 🌙  -->
             </button>
         </nav>
     </header>
 
 
+    <!-- Hero -->
+    <section id="hero" class="text-center py-16 pt-40">
+        <h2 class="text-3xl md:text-5xl font-bold">Bienvenido 🎉</h2>
+        <p class="mt-4 text-lg">Landing adaptable a cualquier tema</p>
+        <button class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+            Call to Action
+        </button>
+    </section>
+
+    <!-- Carrusel -->
+    <section id="testimonios" class="overflow-hidden relative w-full max-w-4xl mx-auto">
+        <div id="carousel" class="flex transition-transform duration-500">
+            <div class="min-w-full bg-red-200 p-16">Slide 1</div>
+            <div class="min-w-full bg-green-200 p-16">Slide 2</div>
+            <div class="min-w-full bg-blue-200 p-16">Slide 3</div>
+        </div>
+        <button id="prev" class="absolute left-2 top-1/2">⬅️</button>
+        <button id="next" class="absolute right-2 top-1/2">➡️</button>
+    </section>
+    <!-- Botón flotante -->
+    <button id="float-btn" class="hidden fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg
+            transition-opacity duration-500 ease-in-out opacity-0">
+        ↑
+    </button>
+
+    <!-- Footer -->
+    <footer id="contacto" class="text-center p-4 bg-gray-100 mt-16">
+        <p>© 2025 Mi Landing</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
