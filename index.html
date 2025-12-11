@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +8,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="style.css">
 
     <!-- Vincular JS -->
     <script defer src="script.js"></script>
@@ -16,38 +18,37 @@
 
     <!-- HEADER -->
     <header class="fixed top-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b 
-        border-gray-300 dark:border-gray-700 z-50">
-
+          border-gray-300 dark:border-gray-700 z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+            <!-- Logo -->
             <h1 class="text-2xl font-black tracking-wide">
                <a href="#hero" class="hover:text-indigo-500">URBAN STORE</a>
             </h1>
            
 
-            <nav id="nav" class="hidden md:flex gap-6 font-semibold">
-                <a href="#hero" class="hover:text-indigo-500">Inicio</a>
-                <a href="#productos" class="hover:text-indigo-500">Productos</a>
-                <a href="#beneficios" class="hover:text-indigo-500">Beneficios</a>
-                <a href="#contacto" class="hover:text-indigo-500">Contacto</a>
-                <button id="darkToggle" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">
+            <!-- Botón menú móvil -->
+            <button id="menu-btn" class="md:hidden text-3xl">☰</button>
+
+            <!-- NAV -->
+            <nav id="menu"
+                class="fixed top-12 left-0 h-full w-2/3 text-white dark: transform -translate-x-full opacity-0 
+  transition-all duration-500 ease-in-out md:static md:flex md:translate-x-0 md:opacity-100 md:bg-transparent md:space-x-6 p-6 md:p-0">
+
+
+                <a href="#hero" class="block py-2 hover:text-indigo-500">Inicio</a>
+                <a href="#dama" class="block py-2 hover:text-indigo-500">Dama</a>
+                <a href="#caballero" class="block py-2 hover:text-indigo-500">Caballero</a>
+                <a href="#beneficios" class="block py-2 hover:text-indigo-500">Beneficios</a>
+                <a href="#contacto" class="block py-2 hover:text-indigo-500">Contacto</a>
+
+                <!-- Toggle Dark Mode -->
+                <button id="darkToggle" class="mt-4 md:mt-0 px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">
                     🌙
                 </button>
             </nav>
-
-            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
-        </div>
-
-        <!-- MENU MOBILE -->
-        <div id="mobileNav" class="hidden flex-col bg-white dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700 p-5 md:hidden">
-            <a href="#hero" class="py-2">Inicio</a>
-            <a href="#productos" class="py-2">Productos</a>
-            <a href="#beneficios" class="py-2">Beneficios</a>
-            <a href="#contacto" class="py-2">Contacto</a>
-            <button id="darkToggleMobile" class="mt-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">
-                Modo Oscuro
-            </button>
         </div>
     </header>
+
 
     <!-- HERO -->
     <section id="hero" class="h-screen flex items-center justify-center bg-cover bg-center relative"
@@ -74,13 +75,15 @@
                 <img class="slider-img w-full hidden" src="img/urb3.jpg">
             </div>
 
-            <button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❮</button>
-            <button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❯</button>
+            <button id="prev"
+                class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❮</button>
+            <button id="next"
+                class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❯</button>
         </div>
     </section>
 
     <!-- PRODUCTOS -->
-    <section id="productos" class="mt-20 px-6 max-w-7xl mx-auto">
+    <section id="productos" class="reveal mt-20 px-6 max-w-7xl mx-auto">
         <h3 class="text-4xl font-bold text-center mb-10">Colección Urbana</h3>
 
         <!-- FILTROS -->
@@ -145,6 +148,7 @@
     <footer class="bg-black text-white text-center py-4">
         © 2025 UrbanStore — Todos los derechos reservados
     </footer>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
