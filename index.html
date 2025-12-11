@@ -1,70 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Store</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda Urbana</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Vincular JS -->
+    <script defer src="script.js"></script>
 </head>
 
-<body>
+<body class="bg-white text-gray-900 transition-colors duration-300">
 
-    <header class="flex justify-between items-center p-4 shadow-md bg-white fixed w-full top-0 z-50">
-        <h1 class="text-xl font-bold">Mi Landing</h1>
-        <!-- Botón hamburguesa -->
-        <button id="menu-btn" class="md:hidden p-2 rounded-lg">
-            ☰
-        </button>
-        <!-- Menú desplegable animado -->
-        <nav id="menu"
-            class="fixed top-0 left-0 h-full w-2/3 bg-gray-100 transform -translate-x-full opacity-0 
-              transition-all duration-500 ease-in-out md:static md:flex md:translate-x-0 md:opacity-100 md:bg-transparent md:space-x-6">
-            <a href="#hero" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Tienda</a>
-            <a href="#beneficios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Dama</a>
-            <a href="#testimonios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Caballero</a>
-            <a href="#contacto" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Ultima Colección</a>
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b 
+        border-gray-300 dark:border-gray-700 z-50">
 
-            <button id="dark-toggle"
-                class="block p-3 ml-4 bg-gray-800 text-white rounded md:bg-transparent md:text-black">
+        <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+            <h1 class="text-2xl font-black tracking-wide">
+                URBAN<span class="text-indigo-600 dark:text-indigo-400">STORE</span>
+            </h1>
+
+            <nav id="nav" class="hidden md:flex gap-6 font-semibold">
+                <a href="#hero" class="hover:text-indigo-500">Inicio</a>
+                <a href="#productos" class="hover:text-indigo-500">Productos</a>
+                <a href="#beneficios" class="hover:text-indigo-500">Beneficios</a>
+                <a href="#contacto" class="hover:text-indigo-500">Contacto</a>
+                <button id="darkToggle" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">
+                    🌙
+                </button>
+            </nav>
+
+            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        </div>
+
+        <!-- MENU MOBILE -->
+        <div id="mobileNav" class="hidden flex-col bg-white dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700 p-5 md:hidden">
+            <a href="#hero" class="py-2">Inicio</a>
+            <a href="#productos" class="py-2">Productos</a>
+            <a href="#beneficios" class="py-2">Beneficios</a>
+            <a href="#contacto" class="py-2">Contacto</a>
+            <button id="darkToggleMobile" class="mt-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">
                 Modo Oscuro
-                <!-- 🌙  -->
             </button>
-        </nav>
+        </div>
     </header>
 
+    <!-- HERO -->
+    <section id="hero" class="h-screen flex items-center justify-center bg-cover bg-center relative"
+        style="background-image: url('ropa.jpg');">
 
-    <!-- Hero -->
-    <section id="hero" class="text-center py-16 pt-40">
-        <h2 class="text-3xl md:text-5xl font-bold">Bienvenido 🎉</h2>
-        <p class="mt-4 text-lg">Landing adaptable a cualquier tema</p>
-        <button class="mt-6 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-            Call to Action
-        </button>
-    </section>
+        <div class="absolute inset-0 bg-black/40"></div>
 
-    <!-- Carrusel -->
-    <section id="testimonios" class="overflow-hidden relative w-full max-w-4xl mx-auto">
-        <div id="carousel" class="flex transition-transform duration-500">
-            <div class="min-w-full bg-red-200 p-16">Slide 1</div>
-            <div class="min-w-full bg-green-200 p-16">Slide 2</div>
-            <div class="min-w-full bg-blue-200 p-16">Slide 3</div>
+        <div class="relative text-center text-white max-w-lg p-6">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-4">MODA URBANA</h2>
+            <p class="text-xl mb-6">Estilo callejero. Calidad premium.</p>
+
+            <a href="#productos" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-full font-semibold">
+                Ver colección
+            </a>
         </div>
-        <button id="prev" class="absolute left-2 top-1/2">⬅️</button>
-        <button id="next" class="absolute right-2 top-1/2">➡️</button>
     </section>
-    <!-- Botón flotante -->
-    <button id="float-btn" class="hidden fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg
-            transition-opacity duration-500 ease-in-out opacity-0">
-        ↑
-    </button>
 
-    <!-- Footer -->
-    <footer id="contacto" class="text-center p-4 bg-gray-100 mt-16">
-        <p>© 2025 Mi Landing</p>
+    <!-- SLIDER -->
+    <section class="max-w-4xl mx-auto mt-16 px-4">
+        <div class="relative">
+            <div class="overflow-hidden rounded-2xl shadow-xl">
+                <img class="slider-img w-full hidden" src="img/urb1.jpg">
+                <img class="slider-img w-full hidden" src="img/urb2.jpg">
+                <img class="slider-img w-full hidden" src="img/urb3.jpg">
+            </div>
+
+            <button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❮</button>
+            <button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❯</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="mt-20 px-6 max-w-7xl mx-auto">
+        <h3 class="text-4xl font-bold text-center mb-10">Colección Urbana</h3>
+
+        <!-- FILTROS -->
+        <div class="flex justify-center gap-4 flex-wrap mb-10">
+            <button data-filter="all" class="filter-btn px-4 py-2 border rounded-lg">Todos</button>
+            <button data-filter="hoodies" class="filter-btn px-4 py-2 border rounded-lg">Hoodies</button>
+            <button data-filter="camisas" class="filter-btn px-4 py-2 border rounded-lg">Camisas</button>
+            <button data-filter="accesorios" class="filter-btn px-4 py-2 border rounded-lg">Accesorios</button>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+            <div class="item" data-category="hoodies">
+                <img src="img/h1.jpg" class="w-full h-80 object-cover rounded-xl shadow">
+                <h4 class="mt-3 text-lg font-semibold">Hoodie Oversize</h4>
+                <p class="text-gray-600 dark:text-gray-400">$29.99</p>
+            </div>
+
+            <div class="item" data-category="camisas">
+                <img src="img/c1.jpg" class="w-full h-80 object-cover rounded-xl shadow">
+                <h4 class="mt-3 text-lg font-semibold">Camisa Negra Street</h4>
+                <p class="text-gray-600 dark:text-gray-400">$24.99</p>
+            </div>
+
+            <div class="item" data-category="accesorios">
+                <img src="img/a1.jpg" class="w-full h-80 object-cover rounded-xl shadow">
+                <h4 class="mt-3 text-lg font-semibold">Gorra Urbana</h4>
+                <p class="text-gray-600 dark:text-gray-400">$14.99</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="mt-20 py-16 bg-gray-100 dark:bg-gray-800">
+        <h3 class="text-4xl font-bold text-center mb-10">¿Por qué elegirnos?</h3>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                🚚 Envíos rápidos
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                ✨ Calidad premium
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                🔄 Cambios fáciles
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                🔥 Estilo único
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-20 text-center">
+        <h3 class="text-4xl font-bold mb-6">Contacto</h3>
+        <p>Email: urbanstore@gmail.com</p>
+        <p>Instagram: @urbanstore</p>
+    </section>
+
+    <footer class="bg-black text-white text-center py-4">
+        © 2025 UrbanStore — Todos los derechos reservados
     </footer>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>

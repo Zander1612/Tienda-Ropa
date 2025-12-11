@@ -1,93 +1,59 @@
-const menuBtn = document.getElementById('menu-btn');
-const menu = document.getElementById('menu');
+// MODO OSCURO
+const darkBtn = document.getElementById("darkToggle");
+const darkBtnMobile = document.getElementById("darkToggleMobile");
 
-menuBtn.addEventListener('click', () => {
-  if (menu.classList.contains('-translate-x-full')) {
-    // Mostrar menú con animación
-    menu.classList.remove('-translate-x-full', 'opacity-0');
-    menu.classList.add('translate-x-0', 'opacity-100');
-  } else {
-    // Ocultar menú con animación
-    menu.classList.remove('translate-x-0', 'opacity-100');
-    menu.classList.add('-translate-x-full', 'opacity-0');
-  }
+function toggleDark() {
+    document.documentElement.classList.toggle("dark");
+}
+
+darkBtn?.addEventListener("click", toggleDark);
+darkBtnMobile?.addEventListener("click", toggleDark);
+
+// MENU MOBILE
+const menuBtn = document.getElementById("menuBtn");
+const mobileNav = document.getElementById("mobileNav");
+
+menuBtn.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
 });
 
-// Scroll suave al hacer clic en enlaces
-document.querySelectorAll('#menu a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const targetId = link.getAttribute('href').substring(1);
-    const targetSection = document.getElementById(targetId);
+// SLIDER
+let current = 0;
+const imgs = document.querySelectorAll(".slider-img");
+const next = document.getElementById("next");
+const prev = document.getElementById("prev");
 
-    targetSection.scrollIntoView({ behavior: 'smooth' });
+function showSlide(i) {
+    imgs.forEach(img => img.classList.add("hidden"));
+    imgs[i].classList.remove("hidden");
+}
 
-    // Ocultar menú en móvil después de seleccionar
-    if (window.innerWidth < 768) {
-      menu.classList.remove('translate-x-0', 'opacity-100');
-      menu.classList.add('-translate-x-full', 'opacity-0');
-    }
-  });
+next.addEventListener("click", () => {
+    current = (current + 1) % imgs.length;
+    showSlide(current);
 });
 
-// Carrusel básico
-const carousel = document.getElementById('carousel');
-const slides = carousel.children;
-let index = 0;
-
-document.getElementById('next').addEventListener('click', () => {
-  index = (index + 1) % slides.length;
-  carousel.style.transform = `translateX(-${index * 100}%)`;
+prev.addEventListener("click", () => {
+    current = (current - 1 + imgs.length) % imgs.length;
+    showSlide(current);
 });
 
-document.getElementById('prev').addEventListener('click', () => {
-  index = (index - 1 + slides.length) % slides.length;
-  carousel.style.transform = `translateX(-${index * 100}%)`;
-});
+showSlide(0);
 
-// Botón flotante (scroll arriba)
-const floatbtn = document.getElementById('float-btn');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300){
-        floatbtn.classList.remove('hidden', 'opacity-0');
-        floatbtn.classList.add('opacity-100')
-    } else {
-        floatbtn.classList.add('opacity-0')
+// FILTROS
+const filterBtns = document.querySelectorAll(".filter-btn");
+const items = document.querySelectorAll(".item");
 
-        setTimeout(() => {
-            if (floatbtn.classList.contains('opacity-0')) {
-                floatbtn.classList.add('hidden');
+filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const category = btn.dataset.filter;
+
+        items.forEach(item => {
+            if (category === "all" || item.dataset.category === category) {
+                item.classList.remove("hidden");
+            } else {
+                item.classList.add("hidden");
             }
-        }, 500)
-    }
-});
-
-floatbtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth'})
-})
-
-// Modo oscuro
-const darkToggle = document.getElementById('dark-toggle');
-darkToggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-});
-
-// Selecciona todos los elementos con clase "reveal"
-const reveals = document.querySelectorAll('.reveal');
-
-const options = {
-  threshold: 0.1 // Se activa cuando el 10% del elemento es visible
-};
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.remove('opacity-0', 'translate-y-10');
-      entry.target.classList.add('opacity-100', 'translate-y-0');
-    }
-  });
-}, options);
-
-reveals.forEach(reveal => {
-  observer.observe(reveal);
+        });
+    });
 });
