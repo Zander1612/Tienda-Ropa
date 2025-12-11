@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
 </head>
+
 <body>
-    <h1>Landing</h1>
+
+    <header class="flex justify-between items-center p-4 shadow-md bg-white fixed w-full top-0 z-50">
+        <h1 class="text-xl font-bold">Mi Landing</h1>
+        <!-- Botón hamburguesa -->
+        <button id="menu-btn" class="md:hidden p-2 rounded-lg">
+            ☰
+        </button>
+        <!-- Menú desplegable animado -->
+        <nav id="menu"
+            class="fixed top-0 left-0 h-full w-2/3 bg-gray-100 transform -translate-x-full opacity-0 
+              transition-all duration-500 ease-in-out md:static md:flex md:translate-x-0 md:opacity-100 md:bg-transparent md:space-x-6">
+            <a href="#hero" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Inicio</a>
+            <a href="#beneficios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Beneficios</a>
+            <a href="#testimonios" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Testimonios</a>
+            <a href="#contacto" class="block p-4 hover:bg-gray-200 md:hover:bg-transparent">Contacto</a>
+
+            <button id="dark-toggle"
+                class="block p-3 ml-4 bg-gray-800 text-white rounded md:bg-transparent md:text-black">
+                🌙 Modo Oscuro
+            </button>
+        </nav>
+    </header>
+
+
 </body>
+
 </html>

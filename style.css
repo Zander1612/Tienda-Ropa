@@ -1,0 +1,27 @@
+/* style.css */
+
+/* Aplica cuando el body tenga la clase "dark" */
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+/* Ejemplo: header y footer */
+body.dark header {
+  background-color: #1f1f1f;
+}
+
+body.dark footer {
+  background-color: #1f1f1f;
+  color: #ccc;
+}
+
+/* Botones */
+body.dark button {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark a {
+  color: #9ecfff;
+}
