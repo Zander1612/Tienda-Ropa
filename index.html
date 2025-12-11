@@ -1,150 +1,149 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Store - Landing Page de Ropa</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda Urbana</title>
 
-    <style>
-        body {
-            transition: background-color 0.3s, color 0.3s;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Vincular JS -->
+    <script defer src="script.js"></script>
 </head>
 
 <body class="bg-white text-gray-900 transition-colors duration-300">
 
-    <header class="flex justify-between items-center p-4 shadow-md bg-white dark:bg-gray-800 dark:text-white fixed w-full top-0 z-50 transition-colors duration-300">
-        <h1 class="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400">Mi Tienda Online</h1>
-        
-        <button id="menu-btn" class="md:hidden p-2 rounded-lg text-2xl focus:outline-none">
-            ☰
-        </button>
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b 
+        border-gray-300 dark:border-gray-700 z-50">
 
-        <nav id="menu"
-            class="fixed top-0 right-0 h-full w-2/3 bg-white dark:bg-gray-800 transform translate-x-full 
-            transition-transform duration-500 ease-in-out md:static md:flex md:translate-x-0 md:h-auto 
-            md:w-auto md:bg-transparent md:dark:bg-transparent md:space-x-6">
-            
-            <button id="close-menu-btn" class="md:hidden p-4 text-3xl absolute top-0 right-0 text-gray-900 dark:text-white">
-                &times;
-            </button>
-            
-            <a href="#hero" class="block p-4 mt-12 md:mt-0 md:p-0 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">Inicio</a>
-            <a href="#beneficios" class="block p-4 md:p-0 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">Productos</a>
-            <a href="#testimonios" class="block p-4 md:p-0 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">Testimonios</a>
-            <a href="#contacto" class="block p-4 md:p-0 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-200">Contacto</a>
+        <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+            <h1 class="text-2xl font-black tracking-wide">
+                URBAN<span class="text-indigo-600 dark:text-indigo-400">STORE</span>
+            </h1>
 
-            <button id="dark-toggle"
-                class="block p-2 ml-4 md:ml-6 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full text-lg shadow-inner transition-all duration-300">
-                <span class="dark:hidden">🌙</span>
-                <span class="hidden dark:inline">☀️</span>
+            <nav id="nav" class="hidden md:flex gap-6 font-semibold">
+                <a href="#hero" class="hover:text-indigo-500">Inicio</a>
+                <a href="#productos" class="hover:text-indigo-500">Productos</a>
+                <a href="#beneficios" class="hover:text-indigo-500">Beneficios</a>
+                <a href="#contacto" class="hover:text-indigo-500">Contacto</a>
+                <button id="darkToggle" class="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">
+                    🌙
+                </button>
+            </nav>
+
+            <button id="menuBtn" class="md:hidden text-3xl">☰</button>
+        </div>
+
+        <!-- MENU MOBILE -->
+        <div id="mobileNav" class="hidden flex-col bg-white dark:bg-gray-900 border-t border-gray-300 dark:border-gray-700 p-5 md:hidden">
+            <a href="#hero" class="py-2">Inicio</a>
+            <a href="#productos" class="py-2">Productos</a>
+            <a href="#beneficios" class="py-2">Beneficios</a>
+            <a href="#contacto" class="py-2">Contacto</a>
+            <button id="darkToggleMobile" class="mt-4 px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-lg">
+                Modo Oscuro
             </button>
-        </nav>
+        </div>
     </header>
 
-    <main class="pt-16">
+    <!-- HERO -->
+    <section id="hero" class="h-screen flex items-center justify-center bg-cover bg-center relative"
+        style="background-image: url('ropa.jpg');">
 
-        <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-            
-            <div class="absolute inset-0 z-0"> 
-                <img 
-                    src="fondo.jpg" 
-                    alt="Fondo de la nueva colección de ropa" 
-                    class="w-full h-full object-cover transition-transform duration-1000 scale-105 brightness-90 hover:scale-110"
-                >
-                <div class="absolute inset-0 bg-black opacity-30"></div>
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative text-center text-white max-w-lg p-6">
+            <h2 class="text-5xl md:text-6xl font-extrabold mb-4">MODA URBANA</h2>
+            <p class="text-xl mb-6">Estilo callejero. Calidad premium.</p>
+
+            <a href="#productos" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-full font-semibold">
+                Ver colección
+            </a>
+        </div>
+    </section>
+
+    <!-- SLIDER -->
+    <section class="max-w-4xl mx-auto mt-16 px-4">
+        <div class="relative">
+            <div class="overflow-hidden rounded-2xl shadow-xl">
+                <img class="slider-img w-full hidden" src="img/urb1.jpg">
+                <img class="slider-img w-full hidden" src="img/urb2.jpg">
+                <img class="slider-img w-full hidden" src="img/urb3.jpg">
             </div>
-            
-            <div class="relative z-10 text-center p-6 bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80 rounded-xl shadow-2xl max-w-lg mx-auto">
-                <h2 class="text-4xl md:text-6xl font-black mb-4 text-indigo-700 dark:text-indigo-300">
-                    Tu Estilo, Tu Tienda
-                </h2>
-                <p class="text-lg md:text-xl mb-6 text-gray-700 dark:text-gray-300">
-                    Descubre nuestra nueva colección. Calidad y diseño inigualables.
-                </p>
-                <a href="#beneficios" class="inline-block px-8 py-3 text-lg font-semibold text-white bg-indigo-600 rounded-full shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
-                    Ver Productos
-                </a>
+
+            <button id="prev" class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❮</button>
+            <button id="next" class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl bg-black/50 text-white px-3 py-1 rounded-full">❯</button>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="mt-20 px-6 max-w-7xl mx-auto">
+        <h3 class="text-4xl font-bold text-center mb-10">Colección Urbana</h3>
+
+        <!-- FILTROS -->
+        <div class="flex justify-center gap-4 flex-wrap mb-10">
+            <button data-filter="all" class="filter-btn px-4 py-2 border rounded-lg">Todos</button>
+            <button data-filter="hoodies" class="filter-btn px-4 py-2 border rounded-lg">Hoodies</button>
+            <button data-filter="camisas" class="filter-btn px-4 py-2 border rounded-lg">Camisas</button>
+            <button data-filter="accesorios" class="filter-btn px-4 py-2 border rounded-lg">Accesorios</button>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+            <div class="item" data-category="hoodies">
+                <img src="img/h1.jpg" class="w-full h-80 object-cover rounded-xl shadow">
+                <h4 class="mt-3 text-lg font-semibold">Hoodie Oversize</h4>
+                <p class="text-gray-600 dark:text-gray-400">$29.99</p>
             </div>
-        </section>
 
-        <section id="beneficios" class="py-20 px-6 bg-gray-50 dark:bg-gray-700">
-            <h3 class="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-gray-100">¿Por qué elegirnos?</h3>
-            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                    <p class="text-4xl mb-4 text-indigo-600">🚀</p>
-                    <h4 class="font-semibold text-xl mb-2 dark:text-white">Envío Rápido</h4>
-                    <p class="text-gray-600 dark:text-gray-400">Recibe tus pedidos en 48 horas sin costo adicional.</p>
-                </div>
-                <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                    <p class="text-4xl mb-4 text-indigo-600">🧵</p>
-                    <h4 class="font-semibold text-xl mb-2 dark:text-white">Calidad Premium</h4>
-                    <p class="text-gray-600 dark:text-gray-400">Tejidos duraderos y diseño de vanguardia.</p>
-                </div>
-                <div class="text-center p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                    <p class="text-4xl mb-4 text-indigo-600">🔄</p>
-                    <h4 class="font-semibold text-xl mb-2 dark:text-white">Devoluciones Fáciles</h4>
-                    <p class="text-gray-600 dark:text-gray-400">Cambia o devuelve cualquier artículo sin complicaciones.</p>
-                </div>
+            <div class="item" data-category="camisas">
+                <img src="img/c1.jpg" class="w-full h-80 object-cover rounded-xl shadow">
+                <h4 class="mt-3 text-lg font-semibold">Camisa Negra Street</h4>
+                <p class="text-gray-600 dark:text-gray-400">$24.99</p>
             </div>
-        </section>
 
-    </main>
+            <div class="item" data-category="accesorios">
+                <img src="img/a1.jpg" class="w-full h-80 object-cover rounded-xl shadow">
+                <h4 class="mt-3 text-lg font-semibold">Gorra Urbana</h4>
+                <p class="text-gray-600 dark:text-gray-400">$14.99</p>
+            </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuBtn = document.getElementById('menu-btn');
-            const menu = document.getElementById('menu');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const darkToggle = document.getElementById('dark-toggle');
-            const htmlElement = document.documentElement;
+        </div>
+    </section>
 
-            // --- Lógica del Menú Móvil ---
-            const toggleMenu = () => {
-                // Alterna la clase 'translate-x-full' que oculta/muestra el menú
-                menu.classList.toggle('translate-x-full');
-            };
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="mt-20 py-16 bg-gray-100 dark:bg-gray-800">
+        <h3 class="text-4xl font-bold text-center mb-10">¿Por qué elegirnos?</h3>
 
-            menuBtn.addEventListener('click', toggleMenu);
-            closeMenuBtn.addEventListener('click', toggleMenu);
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                🚚 Envíos rápidos
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                ✨ Calidad premium
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                🔄 Cambios fáciles
+            </div>
+            <div class="p-6 bg-white dark:bg-gray-700 rounded-xl shadow text-center font-semibold">
+                🔥 Estilo único
+            </div>
+        </div>
+    </section>
 
-            // Cerrar el menú si se hace clic en un enlace (solo en móvil)
-            document.querySelectorAll('#menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Solo si el menú está visible (no en md:static)
-                    if (window.innerWidth < 768) { 
-                        toggleMenu();
-                    }
-                });
-            });
+    <!-- CONTACTO -->
+    <section id="contacto" class="py-20 text-center">
+        <h3 class="text-4xl font-bold mb-6">Contacto</h3>
+        <p>Email: urbanstore@gmail.com</p>
+        <p>Instagram: @urbanstore</p>
+    </section>
 
-            // --- Lógica de Modo Oscuro ---
-            // 1. Revisa la preferencia guardada o del sistema
-            const initializeTheme = () => {
-                if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    htmlElement.classList.add('dark');
-                } else {
-                    htmlElement.classList.remove('dark');
-                }
-            };
-            
-            initializeTheme();
-
-            // 2. Toggle al hacer clic
-            darkToggle.addEventListener('click', () => {
-                if (htmlElement.classList.contains('dark')) {
-                    htmlElement.classList.remove('dark');
-                    localStorage.theme = 'light';
-                } else {
-                    htmlElement.classList.add('dark');
-                    localStorage.theme = 'dark';
-                }
-            });
-        });
-    </script>
+    <footer class="bg-black text-white text-center py-4">
+        © 2025 UrbanStore — Todos los derechos reservados
+    </footer>
+<script src="script.js"></script>
 </body>
-
 </html>
